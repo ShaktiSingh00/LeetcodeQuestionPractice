@@ -1,4 +1,3 @@
-SELECT w1.id
-FROM weather w1 
-JOIN weather w2 ON w1.recordDate = (w2.recordDate + INTERVAL 1 DAY)
-WHERE w1.temperature > w2.temperature;
+select w1.id from Weather w1
+join Weather w2 
+ where w1.temperature >w2.temperature and w1.recordDate = w2.recordDate + interval 1 day;
