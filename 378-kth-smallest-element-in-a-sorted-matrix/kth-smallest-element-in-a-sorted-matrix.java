@@ -9,7 +9,7 @@ class Solution {
             }
         }
         
-        Arrays.sort(arr);
+         Arrays.sort(arr);
         
         return arr[k - 1];
     }
