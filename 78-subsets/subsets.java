@@ -1,19 +1,19 @@
 class Solution {
-    public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> list = new ArrayList<>();
+    public void solveRecBacktracking(int[] nums, int idx, List<List<Integer>> res, List<Integer> l) {
+        res.add(new ArrayList<>(l));
 
-        backTrack(list, new ArrayList<>(),nums,0);
-
-        return list; 
+        // backtracking...
+        for (int i = idx; i < nums.length; i++) {
+            l.add(nums[i]);
+            solveRecBacktracking(nums, i + 1, res, l);
+            l.remove(l.size() - 1);
+        }
     }
 
-    public void backTrack(List<List<Integer>> resultSet, List<Integer> tempSet, int[] nums, int start){
-        resultSet.add(new ArrayList<>(tempSet));
-        for(int i=start;i<nums.length;i++){
-            tempSet.add(nums[i]);
-            backTrack(resultSet, tempSet, nums, i+1);
-            tempSet.remove(tempSet.size()-1);
-        }
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        solveRecBacktracking(nums, 0, res, new ArrayList<>());
+        return res;
     }
 
 }
