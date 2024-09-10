@@ -1,23 +1,25 @@
 class Solution {
     public String frequencySort(String s) {
-        Map<Character, Integer> frequencyMap = new HashMap<>();
-        for (char c : s.toCharArray()) {
-            frequencyMap.put(c, frequencyMap.getOrDefault(c, 0) + 1);
-        }
-
-        // Step 2: Create a list of characters and sort it by frequency
-        List<Character> characters = new ArrayList<>(frequencyMap.keySet());
-        Collections.sort(characters, (a, b) -> frequencyMap.get(b) - frequencyMap.get(a));
-
-        // Step 3: Build the result string
-        StringBuilder result = new StringBuilder();
-        for (char c : characters) {
-            int frequency = frequencyMap.get(c);
-            for (int i = 0; i < frequency; i++) {
-                result.append(c);
+       int n = s.length();
+       HashMap<Character,Integer> hmap = new HashMap<>();
+       for(char c : s.toCharArray()){
+        hmap.put(c,hmap.getOrDefault(c,0)+1);
+       }
+       StringBuilder sb = new StringBuilder();
+       while(!hmap.isEmpty()){
+         int max = Integer.MIN_VALUE;
+         char maxChar = '\0';
+         for(Map.Entry<Character,Integer> entry : hmap.entrySet()){
+            if(entry.getValue() > max ){
+                max = entry.getValue();
+                maxChar = entry.getKey();
             }
-        }
-
-        return result.toString();
+          }
+         for (int i = 0; i < max; i++) {
+                sb.append(maxChar);
+            }            // Remove the character from the map after processing
+            hmap.remove(maxChar);
+       }
+       return sb.toString();
     }
 }
