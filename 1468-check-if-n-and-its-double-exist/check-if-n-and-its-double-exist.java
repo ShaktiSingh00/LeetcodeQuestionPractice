@@ -1,27 +1,15 @@
 class Solution {
     public boolean checkIfExist(int[] arr) {
-        // Arrays.sort(arr);
-        // int i=0,j=arr.length-1;
-        // while(i<j){
-        //     if(arr[i]*2==arr[j]){
-        //         return true;
-        //     }else if(arr[i]*2<arr[j]){
-        //         i++;
-        //     }else{
-        //         j--;
-        //     }
-        // }
-        // return false;
-        HashSet<Integer> hset = new HashSet<>();
-        
-        for(int i=0;i<arr.length;i++){
-            if(hset.contains(arr[i]*2) || (arr[i]%2== 0 && hset.contains(arr[i]/2))){
+        int n = arr.length;
+        HashMap<Integer, Integer> hmap = new HashMap<>();
+        for(int i=0;i<n;i++){
+            hmap.put(arr[i],i);
+        }
+        for(int i=0;i<n;i++){
+            if(hmap.containsKey(2*arr[i]) && hmap.get(2*arr[i]) != i){
                 return true;
             }
-                        hset.add(arr[i]);
-
         }
         return false;
-
     }
 }
