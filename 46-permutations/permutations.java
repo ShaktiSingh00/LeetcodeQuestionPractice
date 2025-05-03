@@ -1,6 +1,6 @@
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> ans = new ArrayList<>();
+          List<List<Integer>> ans = new ArrayList<>();
         recurPermute(0, nums, ans);
         return ans;
     }
