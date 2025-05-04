@@ -1,6 +1,6 @@
 class Solution {
     public void nextPermutation(int[] nums) {
-        int n = nums.length;
+int n = nums.length;
         if(nums == null || nums.length <= 1){
             return;
         }
@@ -27,6 +27,5 @@ class Solution {
         while(i<j){
             swap(nums,i++,j--);
             
-        }
-    }
+        }    }
 }
