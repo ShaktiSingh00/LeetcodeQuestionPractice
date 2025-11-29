@@ -5,12 +5,6 @@ class Solution {
         for(int i=0;i<n;i++){
             sum += nums[i];
         }
-        int count=0;
-        int rem = sum%k;
-        if(rem==0){
-            return 0;
-        }else{
-            return rem;
-        }
+        return sum%k;
     }
 }
