@@ -1,37 +1,31 @@
 class Solution {
     public int numSpecial(int[][] mat) {
-        int n = mat.length;
-        int m = mat[0].length;
-        int count = 0;
+        int m = mat.length;
+        int n = mat[0].length;
 
-        for(int i=0;i<n;i++){
-            for(int j=0;j<m;j++){
-                if(mat[i][j] == 0){
-                     continue;
-                }
+        int[] row = new int[m];
+        int[] col = new int[n];
 
-                boolean find = true;
-                for(int x =0 ; x<n ;x++){
-                    if(x != i && mat[x][j]==1){
-
-                        find = false;
-                        break;
-                    }
-                }
-                for(int c = 0; c<m ;c++){
-                    if(c != j && mat[i][c]==1){
-
-                        find = false;
-                        break;
-                    }
-                }
-
-                if(find){
-                    count++;
+        // Count 1s in rows and columns
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(mat[i][j] == 1){
+                    row[i]++;
+                    col[j]++;
                 }
             }
         }
 
+        int count = 0;
+
+        // Check special positions
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(mat[i][j] == 1 && row[i] == 1 && col[j] == 1){
+                    count++;
+                }
+            }
+        }
 
         return count;
     }
