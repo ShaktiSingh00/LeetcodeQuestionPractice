@@ -10,7 +10,7 @@ class Solution {
             if(nums[j]==0){
                 count++;
             }
-            if(count>k){
+            while(count>k){
                 if(nums[i]==0){
                     count--;
                 }
