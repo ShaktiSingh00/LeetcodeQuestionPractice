@@ -3,7 +3,7 @@ class Solution {
         int n = nums.length;
         k = k % n;
 
-        int[] res = new int[n];
+        int[] res = new int[k];
         int index=0;
 
         for(int i=n-k;i<n;i++){
