@@ -13,7 +13,7 @@ class Solution {
                 if((!stack.isEmpty()) && ((stack.peek()=='(' && c==')') || (stack.peek()=='{' && c=='}') || (stack.peek()=='[' && c==']'))){
                     stack.pop();
                 }else{
-                    stack.push(c);
+                    return false;
                 }
             }
         }
